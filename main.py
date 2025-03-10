@@ -13,8 +13,8 @@ def blackjack():
 @app.route('/xando')
 def tic_tac_toe():
     return render_template("xando.html")  # Tic-Tac-Toe
-@app.route('/guessnumber')
 
+@app.route('/guessnumber')
 def guess_number():
     return render_template("guessnumber.html")  # Guess the Number
 
