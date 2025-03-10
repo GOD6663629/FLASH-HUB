@@ -22,5 +22,9 @@ def guess_number():
 def hangman():
     return render_template("hangman.html")  # Hangman game
 
+@app.route('/Calculator')
+def hangman():
+    return render_template("Calculator.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
