@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center h-screen">
+    <h1 class="text-4xl font-bold mb-6">Guess the Number</h1>
+    <p class="text-lg text-gray-400 mb-4">Try to guess the correct number between 1 and 100!</p>
+    
+    <div id="game-area" class="bg-gray-800 p-6 rounded-lg shadow-lg w-96 text-center">
+        <input type="number" id="guess-input" class="px-4 py-2 rounded-md text-black w-full mb-4" placeholder="Enter your guess">
+        <button id="guess-btn" class="bg-blue-500 px-4 py-2 rounded-md text-white font-bold hover:bg-blue-600 transition">Submit Guess</button>
+        <p id="feedback" class="text-lg font-semibold mt-4"></p>
+    </div>
+    
+    <script>
+        let secretNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        
+        document.getElementById("guess-btn").addEventListener("click", function() {
+            let guess = parseInt(document.getElementById("guess-input").value);
+            attempts++;
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                document.getElementById("feedback").innerText = "Please enter a number between 1 and 100.";
+            } else if (guess < secretNumber) {
+                document.getElementById("feedback").innerText = "Too low! Try again.";
+            } else if (guess > secretNumber) {
+                document.getElementById("feedback").innerText = "Too high! Try again.";
+            } else {
+                document.getElementById("feedback").innerText = `🎉 Correct! You guessed it in ${attempts} attempts.`;
+            }
+            document.getElementById("guess-input").value = "";
+        });
+    </script>
+</body>
+</html>
