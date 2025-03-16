@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center h-screen">
+    <h1 class="text-4xl font-bold mb-6">Calculator</h1>
+    <p class="text-lg text-gray-400 mb-4">Perform quick calculations with ease.</p>
+    
+    <div id="calc-area" class="bg-gray-800 p-6 rounded-lg shadow-lg text-center w-80">
+        <input type="text" id="display" class="w-full text-black text-2xl p-2 rounded-md mb-4" readonly>
+        <div class="grid grid-cols-4 gap-2">
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('7')">7</button>
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('8')">8</button>
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('9')">9</button>
+            <button class="btn bg-red-500 text-white text-xl p-4 rounded" onclick="clearDisplay()">C</button>
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('4')">4</button>
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('5')">5</button>
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('6')">6</button>
+            <button class="btn bg-blue-500 text-white text-xl p-4 rounded" onclick="appendToDisplay('+')">+</button>
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('1')">1</button>
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('2')">2</button>
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('3')">3</button>
+            <button class="btn bg-blue-500 text-white text-xl p-4 rounded" onclick="appendToDisplay('-')">-</button>
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('0')">0</button>
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('.')">.</button>
+            <button class="btn bg-green-500 text-white text-xl p-4 rounded" onclick="calculateResult()">=</button>
+            <button class="btn bg-blue-500 text-white text-xl p-4 rounded" onclick="appendToDisplay('*')">×</button>
+            <button class="btn bg-gray-700 text-white text-xl p-4 rounded" onclick="appendToDisplay('/')">÷</button>
+        </div>
+    </div>
+    
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById("display").value += value;
+        }
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+        function calculateResult() {
+            try {
+                document.getElementById("display").value = eval(document.getElementById("display").value);
+            } catch (e) {
+                document.getElementById("display").value = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
