@@ -4,23 +4,23 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template("index.html")  # Homepage
+    return render_template("FLASH-HUB/index.html")  # Homepage
 
 @app.route('/blackjack')
 def blackjack():
-    return render_template("blackjack.html")  # Blackjack game
+    return render_template("FLASH-HUB/blackjack.html")  # Blackjack game
 
 @app.route('/xando')
 def tic_tac_toe():
-    return render_template("xando.html")  # Tic-Tac-Toe
+    return render_template("FLASH-HUB/xando.html")  # Tic-Tac-Toe
 
 @app.route('/guessnumber')
 def guess_number():
-    return render_template("guessnumber.html")  # Guess the Number
+    return render_template("FLASH-HUB/guessnumber.html")  # Guess the Number
 
 @app.route('/hangman')
 def hangman():
-    return render_template("hangman.html")  # Hangman game
+    return render_template("FLASH-HUB/hangman.html")  # Hangman game
 
 @app.route('/calculator')
 def calculator():
