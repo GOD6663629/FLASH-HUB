@@ -6,25 +6,25 @@ app = Flask(__name__)
 def home():
     return render_template("FLASH-HUB/index.html")  # Homepage
 
-@app.route('/blackjack')
+@app.route('/')
 def blackjack():
     return render_template("FLASH-HUB/blackjack.html")  # Blackjack game
 
-@app.route('/xando')
+@app.route('/')
 def tic_tac_toe():
     return render_template("FLASH-HUB/xando.html")  # Tic-Tac-Toe
 
-@app.route('/guessnumber')
+@app.route('/')
 def guess_number():
     return render_template("FLASH-HUB/guessnumber.html")  # Guess the Number
 
-@app.route('/hangman')
+@app.route('/')
 def hangman():
     return render_template("FLASH-HUB/hangman.html")  # Hangman game
 
-@app.route('/calculator')
+@app.route('/')
 def calculator():
-    return render_template("calculator.html")  # Calculator
+    return render_template("FLASH-HUB/calculator.html")  # Calculator
 
 if __name__ == "__main__":
     app.run(debug=True)
